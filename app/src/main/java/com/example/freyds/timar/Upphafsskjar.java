@@ -8,44 +8,28 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.*;
+public class Upphafsskjar extends Activity implements AdapterView.OnItemClickListener {
 
-
-public class Upphafsskjar extends Activity implements AdapterView.OnItemClickListener{
-
-    ListView vinnuListi;
-    String[] vinnur;
-    List<String> list = new ArrayList<String>();
+    ListView vinnuListi;                    //ListView widget sem heldur utan um öll nöfnin á skráðum vinnum
+    DatabaseAdapter helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upphafsskjar);
 
+        helper = new DatabaseAdapter(this);
+
         ArrayAdapter<String> adapter;
-        Bundle extras = getIntent().getExtras();
         vinnuListi = (ListView)findViewById(R.id.vinnuListi);
 
-        if (extras != null)
-        {
-            String value = extras.getString("name");
-            list.add(value);
-            vinnur = new String[list.size()];
-            list.toArray(vinnur);
-            adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, vinnur);
-            vinnuListi.setAdapter(adapter);
-            vinnuListi.setOnItemClickListener(this);
-        }
-
+        String[] data = helper.getNames();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
+        vinnuListi.setAdapter(adapter);
+        vinnuListi.setOnItemClickListener(this);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -66,9 +50,10 @@ public class Upphafsskjar extends Activity implements AdapterView.OnItemClickLis
         else if (id == R.id.ny_vinna) {
             Intent newJob = new Intent(Upphafsskjar.this, ny_vinna.class);
             Upphafsskjar.this.startActivity(newJob);
-
-
         }
+
+        //það á eftir að útfæra yfirlitið
+
         /*else if (id == R.id.yfirlit) {
             Intent yfirlit = new Intent(Upphafsskjar.this, yfirlit.class);
             Upphafsskjar.this.startActivity(yfirlit);
@@ -77,12 +62,12 @@ public class Upphafsskjar extends Activity implements AdapterView.OnItemClickLis
         return super.onOptionsItemSelected(item);
     }
 
+    //fall sem skiptir um activity þegar ýtt er á e-a vinnu á listanum
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        TextView temp = (TextView) view;
-        //Toast.makeText(this, temp.getText() + "" + i, Toast.LENGTH_SHORT);
-
-        Intent job = new Intent(Upphafsskjar.this, Vinna.class);
-        Upphafsskjar.this.startActivity(job);
+        String name = (String) (vinnuListi.getItemAtPosition(i));           //nafnið á vinnunni
+        Intent job_selected = new Intent(Upphafsskjar.this, Vinna.class);
+        job_selected.putExtra("name", name);                                //sendir nafnið á vinnunni í Vinna activityið
+        Upphafsskjar.this.startActivity(job_selected);
     }
 }

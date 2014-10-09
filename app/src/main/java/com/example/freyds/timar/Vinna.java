@@ -16,9 +16,15 @@ public class Vinna extends Activity {
     Chronometer clock;
     Button in;
     Button out;
-    Button reset;
+    //Button reset;
     TextView hours;
     TextView amount;
+    TextView job_name;
+    TextView salary1;
+    TextView salary2;
+    DatabaseAdapter helper;
+
+    Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +33,22 @@ public class Vinna extends Activity {
 
         in = (Button)findViewById(R.id.button_in);
         out = (Button)findViewById(R.id.button_out);
-        reset = (Button)findViewById(R.id.button_reset);
+        //reset = (Button)findViewById(R.id.button_reset);
         clock = (Chronometer)findViewById(R.id.chronometer);
         hours = (TextView)findViewById(R.id.hours);
         amount = (TextView)findViewById(R.id.amount);
+        job_name = (TextView)findViewById(R.id.job_name);
+        salary1 = (TextView)findViewById(R.id.dagvinna);
+        salary2 = (TextView)findViewById(R.id.yfirvinna);
+
+        helper = new DatabaseAdapter(this);
+
+        extras = getIntent().getExtras();
+        String name = extras.getString("name");
+        job_name.setText(name);
+        String[] salary = helper.getSalary(name);
+        salary1.setText(salary[0]);
+        salary2.setText(salary[1]);
 
         in.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,12 +64,12 @@ public class Vinna extends Activity {
                 hours.setText(getSeconds(clock.getText().toString()));
             }
         });
-        reset.setOnClickListener(new View.OnClickListener() {
+        /*reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 clock.setBase(SystemClock.elapsedRealtime());
             }
-        });
+        });*/
     }
 
     public static String getSeconds(String time)

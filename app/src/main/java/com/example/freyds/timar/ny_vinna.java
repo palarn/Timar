@@ -8,54 +8,40 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 
 public class ny_vinna extends Activity {
 
-    EditText nafn;
-    EditText dagvinna;
-    EditText yfirvinna;
+    EditText nafn, dagvinna, yfirvinna;
     Button skra;
+
+    DatabaseAdapter helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ny_vinna);
 
-        nafn = (EditText)findViewById(R.id.job_name);
-        dagvinna = (EditText)findViewById(R.id.dagvinna);
-        yfirvinna = (EditText)findViewById(R.id.yfirvinna);
-        skra = (Button)findViewById(R.id.skra_button);
+        helper = new DatabaseAdapter(this);
 
-        skra.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!(nafn.getText().toString().equals("")) &&
-                    !(dagvinna.getText().toString().equals("")) &&
-                    !(yfirvinna.getText().toString().equals("")))
-                {
-                    String name = nafn.getText().toString();
-                    double salary1 = Double.parseDouble(dagvinna.getText().toString());
-                    double salary2 = Double.parseDouble(yfirvinna.getText().toString());
-
-                    Intent intent = new Intent(ny_vinna.this, Upphafsskjar.class);
-                    intent.putExtra("name", name);
-                    intent.putExtra("salary1", salary1);
-                    intent.putExtra("salary2", salary2);
-                    startActivity(intent);
-
-                }
-                else
-                {
-                    Toast.makeText(ny_vinna.this, "Fylla verður út alla reiti", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-
+        nafn = (EditText) findViewById(R.id.job_name);
+        dagvinna = (EditText) findViewById(R.id.dagvinna);
+        yfirvinna = (EditText) findViewById(R.id.yfirvinna);
+        skra = (Button) findViewById(R.id.skra_button);
     }
 
+    //bætir inn nýrri vinnu í töfluna JOB_INFO
+    public void addJob(View view)
+    {
+        String name = nafn.getText().toString();
+        String salary1 = dagvinna.getText().toString();
+        String salary2 = yfirvinna.getText().toString();
+
+        long id = helper.insertData(name, salary1, salary2);
+
+        Intent intent = new Intent(ny_vinna.this, Upphafsskjar.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
