@@ -43,6 +43,14 @@ public class DatabaseAdapter
         return id;
     }
 
+    public int deleteJob(String name)
+    {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        String[] whereArgs = {name};
+        int count = db.delete(Helper.JOB_INFO, Helper.NAME+" =? ", whereArgs);
+        return count;
+    }
+
     public int changeJob(String old_name, String new_name, String new_salary1, String new_salary2)
     {
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -71,6 +79,8 @@ public class DatabaseAdapter
         list.toArray(vinnur);
         return vinnur;
     }
+
+
 
     //skilar dagvinnu- og yfirvinnukaupi fyrir vinnuna job
     public String[] getSalary(String job)

@@ -117,10 +117,13 @@ public class Vinna extends Activity {
             intent.putExtra("name", name2);                                      //sendir nafnið á vinnunni til breyta_vinnu activity
             Vinna.this.startActivity(intent);
         }
-        /*else if (id == R.id.delete)
+        else if (id == R.id.delete)
         {
-
-        }*/
+            String name2 = name;
+            Intent intent = new Intent(Vinna.this, Upphafsskjar.class);
+            helper.deleteJob(name2);
+            Vinna.this.startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 }
