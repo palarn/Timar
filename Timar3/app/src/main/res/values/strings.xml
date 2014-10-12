@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Timar</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="ny_vinna">Skrá nýja vinnu</string>
+    <string name="newJob">Skrá nýja vinnu</string>
+    <string name="yfirlit">Sjá heildaryfirlit</string>
+    <string name="title_activity_ny_vinna">Nýskráning</string>
+    <string name="title_activity_vinna">Vinna</string>
+    <string name="title_activity_breyta_vinnu">breyta_vinnu</string>
+
+</resources>
