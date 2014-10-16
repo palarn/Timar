@@ -10,6 +10,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/**
+ * Klasinn sem birtir upphafsskjáinn í forritinu. Sýnir skráðar vinnur og inniheldur tengla í nýskráningu nýrra vinna og yfirlit
+ */
+
 public class Upphafsskjar extends Activity implements AdapterView.OnItemClickListener {
 
     ListView vinnuListi;                    //ListView widget sem heldur utan um öll nöfnin á skráðum vinnum
@@ -35,7 +39,7 @@ public class Upphafsskjar extends Activity implements AdapterView.OnItemClickLis
         super.onPause();
         finish();
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

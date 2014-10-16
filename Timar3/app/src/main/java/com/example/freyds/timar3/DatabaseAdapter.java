@@ -8,8 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Býr til SQL gagnagrunn sem heldur utan um mikilvægar upplýsingar, eyðir einnig gögnum úr gagnagrunni ef þarf
+ */
 
-//þetta er gagnagrunnurinn
 public class DatabaseAdapter
 {
     Helper helper;

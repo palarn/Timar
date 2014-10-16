@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/**
+ * Klasi þar sem hægt er að breyta gögnum um vinnu í gagnagrunni.
+ */
+
 public class breyta_vinnu extends Activity {
 
     TextView old_name;

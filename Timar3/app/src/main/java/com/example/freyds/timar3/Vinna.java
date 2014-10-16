@@ -11,6 +11,11 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
+/**
+ * Klasi sem heldur utan um virkni í activiy_vinna.
+ * Ræsir og stöðvar klukku, sýnir vinnutíma og laun.
+ */
+
 public class Vinna extends Activity {
 
     Chronometer clock;

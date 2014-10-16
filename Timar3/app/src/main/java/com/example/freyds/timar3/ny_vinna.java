@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ *  Klasi sem tekur inn gildi (upplýsingar um vinnustað) og færir þær inní gagnagrunn
+ */
+
 public class ny_vinna extends Activity {
 
     EditText nafn, dagvinna, yfirvinna;
