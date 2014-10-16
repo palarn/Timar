@@ -25,6 +25,8 @@ public class Vinna extends Activity {
     DatabaseAdapter helper;
     String name;
     Bundle extras;
+    static int total_minutes = 0;
+    static int total_hours = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +50,10 @@ public class Vinna extends Activity {
         name = extras.getString("name");
 
         job_name.setText(name);
-        String[] salary = helper.getSalary(name);
+        final String[] salary = helper.getSalary(name);
         salary1.setText(salary[0]);
         salary2.setText(salary[1]);
+
 
         in.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +67,10 @@ public class Vinna extends Activity {
             public void onClick(View view) {
                 clock.stop();
                 hours.setText(getSeconds(clock.getText().toString()));
+                int a = Integer.parseInt(salary[0]) * total_hours;
+                String b = "" + a;
+                amount.setText(b);
+
             }
         });
         /*reset.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +79,7 @@ public class Vinna extends Activity {
                 clock.setBase(SystemClock.elapsedRealtime());
             }
         });*/
+
     }
 
     public static String getSeconds(String time)
@@ -80,18 +88,17 @@ public class Vinna extends Activity {
         String[] array = time.split(":");
         // skiptir strengnum í mism. stök í fylkinu...
         // getur í mesta lagi innihaldið 3 stök, þ.e. HH,MM,SS
-        int minutes = 0;
-        int hours = 0;
+
         if (array.length == 2)
         {
-            minutes = Integer.parseInt(array[0]);
+            total_minutes = Integer.parseInt(array[0]);
         }
         else if (array.length == 3)
         {
-            minutes = Integer.parseInt(array[1]);
-            hours = Integer.parseInt(array[0]);
+            total_minutes = Integer.parseInt(array[1]);
+            total_hours = Integer.parseInt(array[0]);
         }
-        return (hours + " klst. og " + minutes + " mín.");
+        return (total_hours + " klst. og " + total_minutes + " mín.");
     }
 
     @Override
@@ -116,13 +123,11 @@ public class Vinna extends Activity {
         if (id == R.id.action_settings) {
             return true;
         }
-
-        else if(id == R.id.menu_upphafsskjar) {
+        else if (id == R.id.menu_upphafsskjar)
+        {
             Intent openStart = new Intent(Vinna.this, Upphafsskjar.class);
             startActivity(openStart);
-            //return true;
         }
-
         else if (id == R.id.breyta_vinnu)
         {
             String name2 = name;

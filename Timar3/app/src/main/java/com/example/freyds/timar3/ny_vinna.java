@@ -21,7 +21,7 @@ public class ny_vinna extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ny_vinna);
 
-        nafn = (EditText) findViewById(R.id.job_name);
+        nafn = (EditText) findViewById(R.id.jobname);
         dagvinna = (EditText) findViewById(R.id.dagvinna);
         yfirvinna = (EditText) findViewById(R.id.yfirvinna);
         skra = (Button) findViewById(R.id.skra_button);
@@ -42,10 +42,16 @@ public class ny_vinna extends Activity {
         String salary1 = dagvinna.getText().toString();
         String salary2 = yfirvinna.getText().toString();
 
-        long id = helper.insertData(name, salary1, salary2);
-
-        Intent intent = new Intent(ny_vinna.this, Upphafsskjar.class);
-        startActivity(intent);
+        if (name.matches("") || salary1.matches("") || salary2.matches(""))
+        {
+            Toast.makeText(getApplicationContext(), "Fylla verður út alla reiti", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            long id = helper.insertData(name, salary1, salary2);
+            Intent intent = new Intent(ny_vinna.this, Upphafsskjar.class);
+            startActivity(intent);
+        }
     }
 
 
