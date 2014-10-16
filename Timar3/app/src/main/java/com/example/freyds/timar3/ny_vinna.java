@@ -29,6 +29,11 @@ public class ny_vinna extends Activity {
         helper = new DatabaseAdapter(this);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
 
     //bætir inn nýrri vinnu í töfluna JOB_INFO
     public void addJob(View view)
