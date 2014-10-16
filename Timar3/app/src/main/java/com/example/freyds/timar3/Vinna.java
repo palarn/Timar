@@ -110,6 +110,13 @@ public class Vinna extends Activity {
         if (id == R.id.action_settings) {
             return true;
         }
+
+        else if(id == R.id.menu_upphafsskjar) {
+            Intent openStart = new Intent(Vinna.this, Upphafsskjar.class);
+            startActivity(openStart);
+            //return true;
+        }
+
         else if (id == R.id.breyta_vinnu)
         {
             String name2 = name;

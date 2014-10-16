@@ -15,7 +15,7 @@
         android:textSize="35dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/job_name" /> />
+        android:id="@+id/job_name" />
 
     <ListView
         android:layout_width="wrap_content"
