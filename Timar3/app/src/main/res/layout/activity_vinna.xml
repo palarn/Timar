@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,130 +6,123 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.freyds.timar3.Vinna">
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stimpla inn"
-        android:id="@+id/button_in"
-        android:layout_marginTop="70dp"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stimpla út"
-        android:id="@+id/button_out"
-        android:layout_toEndOf="@+id/job_name"
-        android:layout_below="@+id/button_in"
-        android:layout_alignStart="@+id/button_in"
-        android:layout_toStartOf="@+id/job_name"
-        android:layout_alignEnd="@+id/button_in" />
-
-
-    <TextView
-        android:layout_width="286dp"
-        android:layout_height="wrap_content"
-        android:text="Unnir tímar yfir daginn:"
-        android:id="@+id/textView2"
-        android:textSize="20dp"
-        android:layout_above="@+id/textView3"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="79dp"
-        android:layout_gravity="center_vertical" />
-
-    <TextView
-        android:layout_width="137dp"
-        android:layout_height="66dp"
-        android:text="Upphæð:"
-        android:id="@+id/textView3"
-        android:textSize="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="69dp"
-        android:layout_gravity="bottom" />
+    tools:context="com.example.freyds.timar3.Vinna"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/job_name" />
+        android:textSize="30sp"
+        android:id="@+id/job_name"
+        android:layout_marginBottom="20sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stimpla inn"
+            android:id="@+id/button_in"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stimpla út"
+            android:id="@+id/button_out"
+             />
+    </LinearLayout>
 
     <Chronometer android:id="@+id/chronometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:paddingBottom="30dip"
-        android:paddingTop="30dip"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_toStartOf="@+id/button_out"
-        android:textAlignment="center"
-        android:layout_alignBottom="@+id/button_out"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/button_in" />
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Samtals í dag:  "
+            android:id="@+id/textView_yfirlit_top"
+            android:textSize="20sp"
+             />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#140F8C"
+            android:id="@+id/hours"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upphæð: "
+        android:id="@+id/textView3"
+        android:textSize="20sp"
+         />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/amount"
-        android:layout_toEndOf="@+id/job_name"
-        android:textSize="20dp"
-        android:layout_toStartOf="@+id/job_name"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_alignEnd="@+id/chronometer"
-        android:layout_alignParentBottom="true" />
+        android:textSize="20sp"
+        />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/hours"
-        android:layout_toEndOf="@+id/amount"
-        android:textSize="20dp"
-        android:layout_toStartOf="@+id/job_name"
-        android:layout_alignEnd="@+id/chronometer"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_alignStart="@+id/amount"
-        android:layout_above="@+id/amount" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Dagvinna: "
+            android:id="@+id/dag"
+           />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:id="@+id/dagvinna"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Dagvinna:"
-        android:id="@+id/dag"
-        android:layout_below="@+id/button_out"
-        android:layout_alignParentStart="true" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Yfirvinna:"
-        android:id="@+id/yfir"
-        android:layout_toStartOf="@+id/hours"
-        android:layout_below="@+id/dag"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Yfirvinna: "
+            android:id="@+id/yfir"
+             />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=""
-        android:id="@+id/dagvinna"
-        android:layout_toEndOf="@+id/textView3"
-        android:layout_below="@+id/button_out" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:id="@+id/yfirvinna"
+             />
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=""
-        android:id="@+id/yfirvinna"
-        android:layout_below="@+id/dagvinna"
-        android:layout_centerHorizontal="true" />
-
-</RelativeLayout>
+</LinearLayout>
