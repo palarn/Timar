@@ -10,5 +10,13 @@
     <string name="title_activity_ny_vinna">Nýskráning</string>
     <string name="title_activity_vinna">Vinna</string>
     <string name="title_activity_breyta_vinnu">breyta_vinnu</string>
+    <string name="prompt">Hvenær hefst yfirvinna?</string>
+    <string-array name="time_array">
+        <item>16:00</item>
+        <item>17:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
+    </string-array>
 
 </resources>
