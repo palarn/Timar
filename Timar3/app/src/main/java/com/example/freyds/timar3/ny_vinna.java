@@ -20,6 +20,7 @@ public class ny_vinna extends Activity {
     DatabaseAdapter helper;
     Button skra;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
