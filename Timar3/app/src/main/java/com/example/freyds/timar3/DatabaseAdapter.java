@@ -82,6 +82,8 @@ public class DatabaseAdapter
         return vinnur;
     }
 
+
+
     //skilar dagvinnu- og yfirvinnukaupi fyrir vinnuna job
     public String[] getSalary(String job)
     {
