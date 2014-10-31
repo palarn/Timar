@@ -53,6 +53,7 @@ public class ny_vinna extends Activity {
         else
         {
             long id = helper.insertData(name, salary1, salary2);
+
             Intent intent = new Intent(ny_vinna.this, Upphafsskjar.class);
             startActivity(intent);
         }

@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Klasi sem heldur utan um virkni í activiy_vinna.
@@ -75,6 +79,10 @@ public class Vinna extends Activity {
                 int a = Integer.parseInt(salary[0]) * total_hours;
                 String b = "" + a;
                 amount.setText(b);
+                String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+                String newHours = Integer.toString(total_hours);
+                       Toast.makeText(getApplicationContext(), (date +" "+name+" "+newHours), Toast.LENGTH_SHORT).show();
+                long id = helper.insertWorkLog(date, name, newHours);
 
             }
         });

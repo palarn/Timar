@@ -108,25 +108,36 @@ public class DatabaseAdapter
     {
         //tafla með upplýsingum um vinnuna
         //dálkar: nafn vinnu, dagvinnulaun, yfirvinnulaun
+        private static final int DATABASE_VERSION = 1;
         private static final String DATABASE_NAME = "database";
+
         private static final String JOB_INFO = "JOBINFO";
         private static final String NAME = "Name";
         private static final String SALARY1 = "Salary1";
         private static final String SALARY2 = "Salary2";
-        private static final String CREATE_TABLE = "CREATE TABLE " + JOB_INFO + "("+ NAME + " VARCHAR(255) PRIMARY KEY,"+ SALARY1 + " INTEGER(255)," + SALARY2 + " INTEGER(255));";
+        private static final String CREATE_TABLE = "CREATE TABLE "
+                + JOB_INFO + "("
+                + NAME + " VARCHAR(255) PRIMARY KEY,"
+                + SALARY1 + " INTEGER(255),"
+                + SALARY2 + " INTEGER(255));";
         private static final String DROP_TABLE = "DROP TABLE IF EXISTS" + JOB_INFO;
 
         //tafla með upplýsingum um hvenær unnið er
         //dálkar: dagsetning, nafn vinnu, klukkustundir sem eru skráðar fyrir þessa ákveðnu dagsetningu
 
         //þetta er ekki komið í notkun ennþá... notað í Vinna.java
+
         private static final String WORK_LOG = "WORKLOG";
         private static final String DATE = "Date";
         private static final String JOB_NAME = "Name";
         private static final String HOURS = "Hours";
-        private static final String CREATE_WORKLOG = "CREATE TABLE " + WORK_LOG + "(" + DATE + " DATE," + JOB_NAME + " VARCHAR(255)," + HOURS + " INTEGER(255));";
+        private static final String CREATE_WORKLOG = "CREATE TABLE "
+                + WORK_LOG + "("
+                + DATE + " VARCHAR(255) PRIMARY KEY,"
+                + JOB_NAME + " VARCHAR(255) PRIMARY KEY,"
+                + HOURS + " INTEGER(255));";
+        private static final String DROP_WORKLOG = "DROP TABLE IF EXISTS" + WORK_LOG;
         private Context context;
-        private static final int DATABASE_VERSION = 1;
 
         public Helper(Context context)
         {
@@ -139,6 +150,8 @@ public class DatabaseAdapter
         {
             //try {
             db.execSQL(CREATE_TABLE);
+            db.execSQL(CREATE_WORKLOG);
+
         /*}
         catch (SQLException e)
         {
@@ -149,6 +162,7 @@ public class DatabaseAdapter
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
         {
             db.execSQL(DROP_TABLE);
+            db.execSQL(DROP_WORKLOG);
             onCreate(db);
         }
     }
