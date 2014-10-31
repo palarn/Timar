@@ -5,13 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Býr til SQL gagnagrunn sem heldur utan um mikilvægar upplýsingar, eyðir einnig gögnum úr gagnagrunni ef þarf
- */
 
+//þetta er gagnagrunnurinn
 public class DatabaseAdapter
 {
     Helper helper;
@@ -21,13 +21,14 @@ public class DatabaseAdapter
     }
 
     //fall t.þ.a. bæta gildum inní JOB_INFO töfluna, þegar notandinn bætir inn nýrri vinnu
-    public long insertData(String name, String salary1, String salary2)
+    public long insertData(String name, String salary1, String salary2, String timeselected)
     {
         SQLiteDatabase db = helper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(Helper.NAME, name);
         contentValues.put(Helper.SALARY1, salary1);
         contentValues.put(Helper.SALARY2, salary2);
+        contentValues.put(Helper.SALARYTIME, timeselected);
         long id = db.insert(Helper.JOB_INFO, null, contentValues);
         return id;
     }
@@ -88,7 +89,7 @@ public class DatabaseAdapter
     public String[] getSalary(String job)
     {
         SQLiteDatabase db = helper.getWritableDatabase();
-        String[] columns = {Helper.NAME, Helper.SALARY1, Helper.SALARY2};
+        String[] columns = {Helper.NAME, Helper.SALARY1, Helper.SALARY2, Helper.SALARYTIME};
         Cursor cursor = db.query(Helper.JOB_INFO, columns, Helper.NAME + " = '" + job + "'", null, null, null, null);   // => sql skipunin: select salary1, salary2 where name='job'
 
         List<String> list = new ArrayList<String>();
@@ -96,8 +97,10 @@ public class DatabaseAdapter
         {
             String salary1 = cursor.getString(1);
             String salary2 = cursor.getString(2);
+            String salarytime = cursor.getString(3);
             list.add(salary1);
             list.add(salary2);
+            list.add(salarytime);
         }
         String[] salary = new String[list.size()];
         list.toArray(salary);
@@ -113,7 +116,11 @@ public class DatabaseAdapter
         private static final String NAME = "Name";
         private static final String SALARY1 = "Salary1";
         private static final String SALARY2 = "Salary2";
+        private static final String SALARYTIME = "Salarytime";
         private static final String CREATE_TABLE = "CREATE TABLE " + JOB_INFO + "("+ NAME + " VARCHAR(255) PRIMARY KEY,"+ SALARY1 + " INTEGER(255)," + SALARY2 + " INTEGER(255));";
+
+        //private static final String ALTER_TABLE = "ALTER TABLE " + JOB_INFO + "ADD COLUMN " + SALARYTIME + "VARCHAR(255);";
+
         private static final String DROP_TABLE = "DROP TABLE IF EXISTS" + JOB_INFO;
 
         //tafla með upplýsingum um hvenær unnið er
@@ -126,7 +133,7 @@ public class DatabaseAdapter
         private static final String HOURS = "Hours";
         private static final String CREATE_WORKLOG = "CREATE TABLE " + WORK_LOG + "(" + DATE + " DATE," + JOB_NAME + " VARCHAR(255)," + HOURS + " INTEGER(255));";
         private Context context;
-        private static final int DATABASE_VERSION = 1;
+        private static final int DATABASE_VERSION = 2;
 
         public Helper(Context context)
         {
@@ -146,11 +153,10 @@ public class DatabaseAdapter
         }*/
         }
         @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
-        {
-            db.execSQL(DROP_TABLE);
-            onCreate(db);
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            if (newVersion > oldVersion) {
+                db.execSQL("ALTER TABLE JOBINFO ADD COLUMN SALARYTIME VARCHAR(255)");
+            }
         }
     }
-
 }

@@ -11,11 +11,6 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
-/**
- * Klasi sem heldur utan um virkni í activiy_vinna.
- * Ræsir og stöðvar klukku, sýnir vinnutíma og laun.
- */
-
 public class Vinna extends Activity {
 
     Chronometer clock;
@@ -27,6 +22,8 @@ public class Vinna extends Activity {
     TextView job_name;
     TextView salary1;
     TextView salary2;
+    TextView salarytime;
+
     DatabaseAdapter helper;
     String name;
     Bundle extras;
@@ -48,6 +45,8 @@ public class Vinna extends Activity {
         job_name = (TextView)findViewById(R.id.job_name);
         salary1 = (TextView)findViewById(R.id.dagvinna);
         salary2 = (TextView)findViewById(R.id.yfirvinna);
+        salarytime = (TextView)findViewById(R.id.timi);
+
 
         helper = new DatabaseAdapter(this);
 
@@ -59,6 +58,7 @@ public class Vinna extends Activity {
         salary1.setText(salary[0]);
         salary2.setText(salary[1]);
 
+        salarytime.setText(salary[2]);
 
         in.setOnClickListener(new View.OnClickListener() {
             @Override
