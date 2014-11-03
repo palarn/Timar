@@ -42,16 +42,16 @@ public class Upphafsskjar extends Activity implements AdapterView.OnItemClickLis
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; þetta bætir artiði við action barinn ef það er til staðar.
         getMenuInflater().inflate(R.menu.menu_upphafsskjar, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Action bar heldur utan um smelli á aðgerðir. Action bar mun sjálfkrafa halda
+        // utan um smelli á Home/Up takkann, svo lengi sem við tilgreinum parent
+        // activity í AndroidManifest.xml
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
