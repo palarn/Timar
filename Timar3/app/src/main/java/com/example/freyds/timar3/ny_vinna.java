@@ -93,16 +93,17 @@ public class ny_vinna extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Sýnir valmynd; þetta bætir atriði við action barinn ef það er til staðar.
         getMenuInflater().inflate(R.menu.ny_vinna, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Action bar heldur utan um smelli. Action barinn mun
+        // sjálfkrafa sjá um smelli á Home/Up takkann. Svo lengi sem
+        // tekið er fram parent activity í AndroidManifest.xml.
+
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
@@ -173,16 +174,17 @@ public class ny_vinna extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Sýnir valmynd; þetta bætir atriði við action barinn ef það er til staðar.
         getMenuInflater().inflate(R.menu.ny_vinna, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Action bar heldur utan um smelli. Action barinn mun
+        // sjálfkrafa sjá um smelli á Home/Up takkann. Svo lengi sem
+        // tekið er fram parent activity í AndroidManifest.xml.
+
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
