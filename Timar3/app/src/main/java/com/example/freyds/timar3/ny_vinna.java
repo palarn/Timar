@@ -73,7 +73,11 @@ public class ny_vinna extends Activity {
         }
 
         public void onNothingSelected(AdapterView parent) {
+<<<<<<< HEAD
             //do nothing
+=======
+            //gerir ekkert
+>>>>>>> FETCH_HEAD
         }
     }
 
@@ -108,16 +112,26 @@ public class ny_vinna extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+<<<<<<< HEAD
         // Inflate the menu; this adds items to the action bar if it is present.
+=======
+        // Inflate the menu; þetta bætir artiði við action barinn ef það er til staðar.
+>>>>>>> FETCH_HEAD
         getMenuInflater().inflate(R.menu.ny_vinna, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+<<<<<<< HEAD
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+=======
+        // Action bar heldur utan um smelli á aðgerðir. Action bar mun sjálfkrafa halda
+        // utan um smelli á Home/Up takkann, svo lengi sem við tilgreinum parent
+        // activity í AndroidManifest.xml
+>>>>>>> FETCH_HEAD
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
