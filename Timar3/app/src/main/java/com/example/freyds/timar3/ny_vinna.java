@@ -42,7 +42,6 @@ public class ny_vinna extends Activity {
                 this, R.array.time_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         timiYfirvinnu.setAdapter(adapter);
-        timiYfirvinnu.setOnItemSelectedListener(new MyOnItemSelectedListener());
 
         Button myButton =(Button)findViewById(R.id.button1);
         myButton.setOnClickListener(new Button.OnClickListener() {
@@ -61,20 +60,6 @@ public class ny_vinna extends Activity {
             }
         });
         helper = new DatabaseAdapter(this);
-    }
-
-    public  class MyOnItemSelectedListener implements OnItemSelectedListener {
-
-        public void onItemSelected(AdapterView<?> parent,
-                                   View view, int pos, long id) {
-            Toast.makeText(parent.getContext(), "Item is " +
-                    parent.getItemAtPosition(pos).toString(), Toast.LENGTH_LONG).show();
-
-        }
-
-        public void onNothingSelected(AdapterView parent) {
-            //do nothing
-        }
     }
 
     @Override
