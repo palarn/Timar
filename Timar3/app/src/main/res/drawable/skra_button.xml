@@ -2,11 +2,10 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/takkiPressed2"
+    <item android:drawable="@drawable/takkipressed2"
         android:state_pressed="true" />
-    <item android:drawable="@drawable/takkiNotpressed3"
+    <item android:drawable="@drawable/takkinotpressed3"
         android:state_focused="true" />
-    <item android:drawable="@drawable/takkiNotpressed2" />
-
+    <item android:drawable="@drawable/takkinotpressed2" />
 
 </selector>
