@@ -13,8 +13,11 @@ import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+
 /**
- *  Klasi sem tekur inn gildi (upplýsingar um vinnustað) og færir þær inní gagnagrunn
+ * Höfundur: Anna Hafþórsdóttir, Freydís Halldórsdóttir, Helga Lóa Kristjánsdóttir, Páll Arnar Pálsson
+ * Dags.: 10. október 2014
+ * Skýring: Klasi sem tekur inn gildi (upplýsingar um vinnustað) og færir þær inní gagnagrunn
  */
 
 public class ny_vinna extends Activity {

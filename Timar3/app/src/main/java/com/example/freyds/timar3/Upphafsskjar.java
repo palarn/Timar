@@ -10,8 +10,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+
 /**
- * Klasinn sem birtir upphafsskjáinn í forritinu. Sýnir skráðar vinnur og inniheldur tengla í nýskráningu nýrra vinna og yfirlit
+ * Höfundur: Anna Hafþórsdóttir, Freydís Halldórsdóttir, Helga Lóa Kristjánsdóttir, Páll Arnar Pálsson
+ * Dags.: 10. október 2014
+ * Skýring: Klasinn sem birtir upphafsskjáinn í forritinu. Sýnir skráðar vinnur og inniheldur tengla í nýskráningu nýrra vinna og yfirlit
  */
 
 public class Upphafsskjar extends Activity implements AdapterView.OnItemClickListener {

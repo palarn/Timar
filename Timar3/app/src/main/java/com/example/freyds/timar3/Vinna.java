@@ -11,6 +11,12 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
+/**
+ * Höfundur: Anna Hafþórsdóttir, Freydís Halldórsdóttir, Helga Lóa Kristjánsdóttir, Páll Arnar Pálsson
+ * Dags.: 10. október 2014
+ * Skýring: Klasi sem heldur utan um virkni í activiy_vinna. Ræsir og stöðvar klukku, sýnir vinnutíma og laun. Skráir tíma í gangagrunn
+ */
+
 public class Vinna extends Activity {
 
     Chronometer clock;
