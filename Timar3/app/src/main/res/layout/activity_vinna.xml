@@ -27,15 +27,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button_in"
-            android:background="@drawable/stimpla_inn"/>
+            android:background="@drawable/stimpla_inn" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button_out"
-            android:background="@drawable/stimpla_ut"
-            />
+            android:background="@drawable/stimpla_ut" />
 
     </LinearLayout>
 
