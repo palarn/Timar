@@ -10,6 +10,11 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Höfundur: Anna Hafþórsdóttir, Freydís Halldórsdóttir, Helga Lóa Kristjánsdóttir, Páll Arnar Pálsson
+ * Dags.: 10. október 2014
+ * Skýring: Býr til SQL gagnagrunn sem heldur utan um mikilvægar upplýsingar, eyðir einnig gögnum úr gagnagrunni ef þarf
+ */
 
 //þetta er gagnagrunnurinn
 public class DatabaseAdapter
