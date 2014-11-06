@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Höfundur: Anna Hafþórsdóttir, Freydís Halldórsdóttir, Helga Lóa Kristjánsdóttir, Páll Arnar Pálsson
- * Dags.: 10. október 2014
- * Skýring: Býr til SQL gagnagrunn sem heldur utan um mikilvægar upplýsingar, eyðir einnig gögnum úr gagnagrunni ef þarf
+ * Byr til SQL gagnagrunn sem heldur utan um mikilvaegar upplysingar, eydir einnig gognum ur gagnagrunni ef tharf
+ * @author Anna Hafthorsdottir, Freydis Halldorsdottir, Helga Loa Kristjansdottir, Pall Arnar Palsson
+ * @date 10. october 2014
  */
 
 //þetta er gagnagrunnurinn

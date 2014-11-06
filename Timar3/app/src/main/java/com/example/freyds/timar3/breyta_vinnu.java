@@ -11,9 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 /**
- * Höfundur: Anna Hafþórsdóttir, Freydís Halldórsdóttir, Helga Lóa Kristjánsdóttir, Páll Arnar Pálsson
- * Dags.: 10. október 2014
- * Skýring: Klasi þar sem hægt er að breyta gögnum um vinnu í gagnagrunni.
+ * Klasi thar sem haegt er ad breyta gognum um vinnu i gagnagrunni.
+ * @author Anna Hafthorsdottir, Freydis Halldorsdottir, Helga Loa Kristjansdottir, Pall Arnar Palsson
+ * @date 10. october 2014
  */
 
 public class breyta_vinnu extends Activity {

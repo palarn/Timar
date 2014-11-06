@@ -15,9 +15,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 /**
- * Höfundur: Anna Hafþórsdóttir, Freydís Halldórsdóttir, Helga Lóa Kristjánsdóttir, Páll Arnar Pálsson
- * Dags.: 10. október 2014
- * Skýring: Klasi sem tekur inn gildi (upplýsingar um vinnustað) og færir þær inní gagnagrunn
+ * Klasi sem tekur inn gildi (upplysingar um vinnustad) og faerir thaer inn i gagnagrunn
+ * @author Anna Hafthorsdottir, Freydis Halldorsdottir, Helga Loa Kristjansdottir, Pall Arnar Palsson
+ * @date 10. october 2014
  */
 
 public class ny_vinna extends Activity {

@@ -12,9 +12,9 @@ import android.widget.ListView;
 
 
 /**
- * Höfundur: Anna Hafþórsdóttir, Freydís Halldórsdóttir, Helga Lóa Kristjánsdóttir, Páll Arnar Pálsson
- * Dags.: 10. október 2014
- * Skýring: Klasinn sem birtir upphafsskjáinn í forritinu. Sýnir skráðar vinnur og inniheldur tengla í nýskráningu nýrra vinna og yfirlit
+ * Klasinn sem birtir upphafsskjainn í forritinu. Synir skradar vinnur og inniheldur tengla i nyskraningu nyrra vinna og yfirlit
+ * @author Anna Hafthorsdottir, Freydis Halldorsdottir, Helga Loa Kristjansdottir, Pall Arnar Palsson
+ * @date 10. october 2014
  */
 
 public class Upphafsskjar extends Activity implements AdapterView.OnItemClickListener {

@@ -12,9 +12,9 @@ import android.widget.Chronometer;
 import android.widget.TextView;
 
 /**
- * Höfundur: Anna Hafþórsdóttir, Freydís Halldórsdóttir, Helga Lóa Kristjánsdóttir, Páll Arnar Pálsson
- * Dags.: 10. október 2014
- * Skýring: Klasi sem heldur utan um virkni í activiy_vinna. Ræsir og stöðvar klukku, sýnir vinnutíma og laun. Skráir tíma í gangagrunn
+ * Klasi sem heldur utan um virkni i activiy_vinna. Raesir og stodvar klukku, synir vinnutima og laun. Skrair tima i gagnagrunn
+ * @author Anna Hafthorsdottir, Freydis Halldorsdottir, Helga Loa Kristjansdottir, Pall Arnar Palsson
+ * @date 10. october 2014
  */
 
 public class Vinna extends Activity {
