@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Klasi sem heldur utan um virkni i activiy_vinna. Raesir og stodvar klukku, synir vinnutima og laun. Skrair tima i gagnagrunn
@@ -18,7 +22,6 @@ import android.widget.TextView;
  */
 
 public class Vinna extends Activity {
-
     Chronometer clock;
     Button in;
     Button out;
@@ -35,6 +38,7 @@ public class Vinna extends Activity {
     Bundle extras;
     static int total_minutes = 0;
     static int total_hours = 0;
+    static boolean clicked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +57,7 @@ public class Vinna extends Activity {
         salary2 = (TextView)findViewById(R.id.yfirvinna);
         salarytime = (TextView)findViewById(R.id.timi);
 
-
         helper = new DatabaseAdapter(this);
-
         extras = getIntent().getExtras();
         name = extras.getString("name");
 
@@ -63,27 +65,64 @@ public class Vinna extends Activity {
         final String[] salary = helper.getSalary(name);
         salary1.setText(salary[0]);
         salary2.setText(salary[1]);
-
         salarytime.setText(salary[2]);
 
+        //ýtt á stimpla inn takkann
+        //temp_date, name, temp_in sett í TEMP töflu
         in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clock.setBase(SystemClock.elapsedRealtime());
-                clock.start();
+                if (!clicked)
+                {
+                    clock.setBase(SystemClock.elapsedRealtime());
+                    clock.start();
+
+                    SimpleDateFormat d = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat t = new SimpleDateFormat("HH:mm");
+
+                    Date time = new java.util.Date();
+                    String temp_date = d.format(time);
+                    String temp_in = t.format(time);
+
+                    helper.insertInTemp(temp_date, name, temp_in);
+                    clicked = true;
+                }
             }
         });
+
+        //ýtt á stimpla út takkann (bara ef búið er að ýta á stimpla inn)
+        //temp_out sett í TEMP töflu, total_hours og total_minutes reiknað út frá temp_in og temp_out
+        //upplýsingarnar úr TEMP settar í WORKLOG og færslunni úr TEMP er eytt
         out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clock.stop();
-                hours.setText(getSeconds(clock.getText().toString()));
-                int a = Integer.parseInt(salary[0]) * total_hours;
-                String b = "" + a;
-                amount.setText(b);
+                if (clicked)
+                {
+                    clock.stop();
+                    hours.setText(getSeconds(clock.getText().toString()));
 
+                    Date time = new java.util.Date();
+                    SimpleDateFormat t = new SimpleDateFormat("HH:mm");
+                    String temp_out = t.format(time);
+
+                    helper.insertOutTemp(name, temp_out);
+
+                    Toast.makeText(getApplicationContext(), temp_out, Toast.LENGTH_LONG).show();
+                    String[] tempinfo = helper.getTempInfo();
+
+                    double hours = Double.parseDouble(tempinfo[4]) + (Double.parseDouble(tempinfo[5]) / 60);
+                    int money = (int)(Integer.parseInt(salary[0]) * hours);
+                    String money_text = "" + money;
+                    amount.setText(money_text);
+
+                    //date, name, in, out, hours, minutes, salary
+                    helper.insertWorkLog(tempinfo[0], tempinfo[1], tempinfo[2], tempinfo[3], tempinfo[4], tempinfo[5], salary[0]);
+                    helper.deleteTemp();
+                    clicked = false;
+                }
             }
         });
+
         /*reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

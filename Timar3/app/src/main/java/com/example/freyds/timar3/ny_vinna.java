@@ -39,8 +39,6 @@ public class ny_vinna extends Activity {
         timiYfirvinnu = (Spinner)findViewById(R.id.timiYfirvinnu);
         skra = (Button) findViewById(R.id.skra_button);
 
-
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this, R.array.time_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -54,7 +52,6 @@ public class ny_vinna extends Activity {
                 String spinnerString = null;
                 spinnerString = sp.getSelectedItem().toString();
                 int nPos = sp.getSelectedItemPosition();
-
 
                 Toast.makeText(getApplicationContext(), "getSelectedItem=" + spinnerString,
                         Toast.LENGTH_LONG).show();

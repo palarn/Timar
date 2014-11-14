@@ -61,13 +61,13 @@ public class Upphafsskjar extends Activity implements AdapterView.OnItemClickLis
             return true;
         }
         else if (id == R.id.ny_vinna) {
-            Intent newJob = new Intent(Upphafsskjar.this, ny_vinna.class);
-            Upphafsskjar.this.startActivity(newJob);
+            Intent nyvinna = new Intent(Upphafsskjar.this, ny_vinna.class);
+            Upphafsskjar.this.startActivity(nyvinna);
         }
-        /*else if (id == R.id.yfirlit) {
+        else if (id == R.id.yfirlit) {
             Intent yfirlit = new Intent(Upphafsskjar.this, yfirlit.class);
             Upphafsskjar.this.startActivity(yfirlit);
-        }*/
+        }
 
         return super.onOptionsItemSelected(item);
     }

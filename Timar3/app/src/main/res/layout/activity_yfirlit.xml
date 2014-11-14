@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yfirlit"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30dp" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="125dp">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">/
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frá:"
+                android:id="@+id/from"
+                android:layout_alignParentLeft="true"
+                android:textSize="20dp" />
+
+            <DatePicker
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/datePicker"
+                android:calendarViewShown="false"
+                android:layout_below="@+id/from"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:text="Til:"
+                android:id="@+id/to"
+                android:layout_alignParentRight="true"
+                android:textSize="20dp" />
+
+            <DatePicker
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/datePicker2"
+                android:calendarViewShown="false"
+
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/to"
+                android:layout_toRightOf="@+id/datePicker" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sækja yfirlit"
+        android:id="@+id/get"
+        android:layout_gravity="center_horizontal"
+        android:onClick="getOverview" />
+
+
+</LinearLayout>

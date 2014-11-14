@@ -28,6 +28,22 @@
             android:name=".breyta_vinnu"
             android:label="@string/title_activity_breyta_vinnu" >
         </activity>
+        <activity
+            android:name=".yfirlit"
+            android:label="@string/title_activity_yfirlit" >
+        </activity>
+        <activity
+            android:name=".ListAdapter"
+            android:label="@string/title_activity_list_adapter" >
+        </activity>
+        <activity
+            android:name=".vinnu_yfirlit"
+            android:label="@string/title_activity_vinnu_yfirlit" >
+        </activity>
+        <activity
+            android:name=".dags_yfirlit"
+            android:label="@string/title_activity_dags_yfirlit" >
+        </activity>
     </application>
 
 </manifest>

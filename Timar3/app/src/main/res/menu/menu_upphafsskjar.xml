@@ -13,7 +13,7 @@
         android:orderInCategory="100"
         android:showAsAction="always" />
 
-    <item android:id="@+id/menu_yfirlit"
+    <item android:id="@+id/yfirlit"
         android:title="Yfirlit"
         android:orderInCategory="200"
         android:showAsAction="always" />

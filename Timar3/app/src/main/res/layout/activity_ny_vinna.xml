@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dagvinnukaup: *"
-            android:id="@+id/textView3"
+            android:id="@+id/name"
             android:textSize="20sp"/>
 
         <EditText
@@ -113,7 +113,7 @@
         android:id="@+id/skra_button"
         android:background="@drawable/skra_button"
 
-    />
+        android:onClick="addJob" />
 
 </LinearLayout>
 

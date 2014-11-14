@@ -11,6 +11,7 @@
     <string name="title_activity_vinna">Vinna</string>
     <string name="title_activity_breyta_vinnu">breyta_vinnu</string>
     <string name="prompt">Hvenær hefst yfirvinna?</string>
+
     <string-array name="time_array">
         <item>16:00</item>
         <item>17:00</item>
@@ -19,6 +20,9 @@
         <item>20:00</item>
     </string-array>
 
+    <string name="title_activity_yfirlit">yfirlit</string>
+    <string name="title_activity_list_adapter">ListAdapter</string>
+    <string name="title_activity_vinnu_yfirlit">vinnu_yfirlit</string>
+    <string name="title_activity_dags_yfirlit">dags_yfirlit</string>
+
 </resources>
-
-

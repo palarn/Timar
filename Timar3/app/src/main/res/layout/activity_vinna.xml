@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:id="@+id/job_name"
-        android:layout_marginBottom="20sp"/>
+        android:layout_marginBottom="20sp"
+        android:layout_gravity="center_horizontal"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,57 +39,74 @@
 
     </LinearLayout>
 
-    <Chronometer android:id="@+id/chronometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dip"
-        android:paddingTop="10dip" />
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Chronometer android:id="@+id/chronometer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Samtals í dag:  "
+            android:text="Samtals í dag:"
             android:id="@+id/textView_yfirlit_top"
+            android:layout_alignParentStart="true"
             android:textSize="20sp"/>
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#140F8C"
             android:id="@+id/hours"
+            android:layout_alignParentEnd="true"
             android:textSize="20sp"/>
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Upphæð:"
-            android:id="@+id/textView3"
+            android:id="@+id/name"
+            android:layout_alignParentStart="true"
             android:textSize="20sp"/>
 
         <TextView
-            android:layout_width="152dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/amount"
             android:textSize="20sp"
-            android:layout_gravity="right" />
+            android:layout_alignParentEnd="true"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="105dp"
-        android:layout_height="27dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip"
         android:orientation="horizontal">
 
         <TextView
@@ -96,6 +114,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Dagvinna:"
+            android:layout_alignParentStart="true"
             android:id="@+id/dag" />
 
         <TextView
@@ -103,13 +122,16 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text=""
+            android:layout_alignParentEnd="true"
             android:id="@+id/dagvinna" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip"
         android:orientation="horizontal">
 
         <TextView
@@ -117,6 +139,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Yfirvinna:"
+            android:layout_alignParentStart="true"
             android:id="@+id/yfir" />
 
         <TextView
@@ -124,13 +147,16 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text=""
+            android:layout_alignParentEnd="true"
             android:id="@+id/yfirvinna" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip"
         android:orientation="horizontal">
 
         <TextView
@@ -138,16 +164,17 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Tími yfirvinnu:"
+            android:layout_alignParentStart="true"
             android:id="@+id/timiYfir" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/timi"
-            android:layout_gravity="right" />
+            android:layout_alignParentEnd="true"/>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </LinearLayout>
