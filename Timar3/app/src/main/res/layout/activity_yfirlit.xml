@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#ffd5d5d5">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Yfirlit"
         android:id="@+id/textView2"
         android:layout_gravity="center_horizontal"
@@ -32,8 +34,10 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_height="wrap_content"
                 android:text="Frá:"
+                android:layout_marginLeft="10dp"
                 android:id="@+id/from"
                 android:layout_alignParentLeft="true"
                 android:textSize="20dp" />
@@ -41,6 +45,7 @@
             <DatePicker
                 android:scaleX="0.7"
                 android:scaleY="0.7"
+                android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/datePicker"
@@ -50,9 +55,11 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_marginTop="15dp"
 
                 android:layout_height="wrap_content"
                 android:text="Til:"
+                android:layout_marginRight="10dp"
                 android:id="@+id/to"
                 android:layout_alignParentRight="true"
                 android:textSize="20dp" />
@@ -60,6 +67,7 @@
             <DatePicker
                 android:scaleX="0.7"
                 android:scaleY="0.7"
+                android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/datePicker2"
@@ -75,8 +83,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sækja yfirlit"
+        android:layout_marginTop="30dp"
         android:id="@+id/get"
+        android:background="@drawable/saekja_yfirlit"
         android:layout_gravity="center_horizontal"
         android:onClick="getOverview" />
 
