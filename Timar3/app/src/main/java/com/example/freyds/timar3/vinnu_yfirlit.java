@@ -107,6 +107,15 @@ public class vinnu_yfirlit extends Activity {
         if (id == R.id.action_settings) {
             return true;
         }
+        else if (id == R.id.menu_upphafsskjar)
+        {
+            Intent openStart = new Intent(vinnu_yfirlit.this, Upphafsskjar.class);
+            startActivity(openStart);
+        }
+        else if (id == R.id.menu_back)
+        {
+            finish();
+        }
         return super.onOptionsItemSelected(item);
     }
 }

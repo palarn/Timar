@@ -6,6 +6,16 @@
         android:orderInCategory="200"
         android:showAsAction="never" />
 
+    <item android:id="@+id/menu_back"
+        android:title="<- Til baka"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/menu_yfirlit"
+        android:title="Yfirlit"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
     <item android:id="@+id/menu_upphafsskjar"
         android:title="Heim"
         android:orderInCategory="100"

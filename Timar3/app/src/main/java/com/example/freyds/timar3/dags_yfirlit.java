@@ -62,6 +62,15 @@ public class dags_yfirlit extends Activity {
             Intent openStart = new Intent(dags_yfirlit.this, Upphafsskjar.class);
             startActivity(openStart);
         }
+        else if (id == R.id.menu_yfirlit)
+        {
+            Intent openStart = new Intent(dags_yfirlit.this, yfirlit.class);
+            startActivity(openStart);
+        }
+        else if (id == R.id.menu_back)
+        {
+            finish();
+        }
         return super.onOptionsItemSelected(item);
     }
 }
