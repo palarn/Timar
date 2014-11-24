@@ -34,10 +34,10 @@ public class dags_yfirlit extends Activity {
         String[] results = helper.getJobInfo(d, n, i);
         date.setText(results[0]);
         name.setText(results[1]);
-        in.setText(results[2]);
-        out.setText(results[3]);
-        hours.setText(results[4]);
-        amount.setText(results[5]);
+        in.setText("Stimplað inn: "+results[2]);
+        out.setText("Stimplað út: "+results[3]);
+        hours.setText("Samtals tímar: " + results[4]);
+        amount.setText("Laun: " + results[5]);
     }
 
 

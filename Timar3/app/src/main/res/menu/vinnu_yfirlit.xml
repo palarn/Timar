@@ -7,12 +7,12 @@
         android:showAsAction="never" />
 
     <item android:id="@+id/menu_back"
-        android:title="<- Til baka"
+        android:title="@string/menu_back_value"
         android:orderInCategory="100"
-        android:showAsAction="never" />
+        android:showAsAction="ifRoom" />
 
     <item android:id="@+id/menu_upphafsskjar"
-        android:title="Heim"
+        android:title="@string/menu_home"
         android:orderInCategory="100"
         android:showAsAction="never" />
 </menu>

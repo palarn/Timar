@@ -163,10 +163,9 @@ public class yfirlit extends Activity implements
         if (id == R.id.action_settings) {
             return true;
         }
-        else if (id == R.id.menu_upphafsskjar)
+        else if (id == R.id.menu_yfirlit_back)
         {
-            Intent openStart = new Intent(yfirlit.this, Upphafsskjar.class);
-            startActivity(openStart);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

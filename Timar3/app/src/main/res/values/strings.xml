@@ -11,6 +11,10 @@
     <string name="title_activity_vinna">Vinna</string>
     <string name="title_activity_breyta_vinnu">breyta_vinnu</string>
     <string name="prompt">Hvenær hefst yfirvinna?</string>
+    <string name="menu_back_value">← Til baka</string>
+    <string name="menu_home">╦ Heim</string>
+    <string name="menu_yfirlit">≡ Yfirlit</string>
+
 
     <string-array name="time_array">
         <item>16:00</item>

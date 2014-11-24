@@ -14,7 +14,7 @@
         android:showAsAction="always" />
 
     <item android:id="@+id/yfirlit"
-        android:title="Yfirlit"
+        android:title="@string/menu_yfirlit"
         android:orderInCategory="200"
         android:showAsAction="always" />
 
