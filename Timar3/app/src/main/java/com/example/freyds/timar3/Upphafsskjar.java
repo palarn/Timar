@@ -40,7 +40,6 @@ public class Upphafsskjar extends Activity implements AdapterView.OnItemClickLis
     @Override
     protected void onPause() {
         super.onPause();
-        finish();
     }
 
     @Override

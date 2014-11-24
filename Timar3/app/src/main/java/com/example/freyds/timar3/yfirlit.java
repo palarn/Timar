@@ -17,6 +17,8 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.content.Intent;
+
 
 public class yfirlit extends Activity implements
         android.widget.CompoundButton.OnCheckedChangeListener {
@@ -160,6 +162,11 @@ public class yfirlit extends Activity implements
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
+        }
+        else if (id == R.id.menu_upphafsskjar)
+        {
+            Intent openStart = new Intent(yfirlit.this, Upphafsskjar.class);
+            startActivity(openStart);
         }
         return super.onOptionsItemSelected(item);
     }

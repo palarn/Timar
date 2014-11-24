@@ -3,6 +3,12 @@
     tools:context="com.example.freyds.timar3.dags_yfirlit" >
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
+        android:orderInCategory="200"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/menu_upphafsskjar"
+        android:title="Heim"
         android:orderInCategory="100"
         android:showAsAction="never" />
+
 </menu>

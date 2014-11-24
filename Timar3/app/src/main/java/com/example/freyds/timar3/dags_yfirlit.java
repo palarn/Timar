@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.content.Intent;
+
 
 
 public class dags_yfirlit extends Activity {
@@ -54,6 +56,11 @@ public class dags_yfirlit extends Activity {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
+        }
+        else if (id == R.id.menu_upphafsskjar)
+        {
+            Intent openStart = new Intent(dags_yfirlit.this, Upphafsskjar.class);
+            startActivity(openStart);
         }
         return super.onOptionsItemSelected(item);
     }
