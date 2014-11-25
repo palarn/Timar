@@ -271,7 +271,9 @@ public class Vinna extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        finish();
+        if(!clicked){
+            finish();
+        }
     }
 
     @Override
