@@ -28,7 +28,7 @@ public class Vinna extends Activity {
     Button out;
     //Button reset;
     TextView hours;
-    TextView amount;
+    static TextView amount;
     TextView job_name;
     TextView salary1;
     TextView salary2;
@@ -112,6 +112,7 @@ public class Vinna extends Activity {
                     String[] tempinfo = helper.getTempInfo();
 
                     double hours = Double.parseDouble(tempinfo[4]) + (Double.parseDouble(tempinfo[5]) / 60);
+                    Log.v("hours", ""+ hours);
 
 
 
@@ -124,111 +125,108 @@ public class Vinna extends Activity {
                     String uttimi = utstimplun[0] + "." + utstimplun[1];
                     double in = Double.parseDouble(inntimi);
                     double out = Double.parseDouble(uttimi);
-                    Log.e("This is the output", in+"");
-                    Log.e("This is the output", out+"");
+                    Log.v("This is the output", in+"");
+                    Log.v("This is the output", out+"");
 
                     String yfirvinna = salary[2];
                     String [] yfirvinnustrengur = yfirvinna.split(":");
                     System.out.print(yfirvinnustrengur);
                     String yfirvinnafyrripartur = yfirvinnustrengur[0];
                     double yfirvinnutala = Double.parseDouble(yfirvinnafyrripartur);
-                    Log.e("This is the output", yfirvinnutala+"");
+
+                    Log.v("This is the output", yfirvinnutala+"");
+
                     int yfirvinnukaup = (int)(Integer.parseInt(salary[1]));
+
+                    int dagvinnukaup = (int)(Integer.parseInt(salary[0]));
+
+                    Laun laun = new Laun(in, out, yfirvinnutala, dagvinnukaup, yfirvinnukaup, hours);
 
                     //Ef þú vinnur á dagvinnulaunum allan daginn
                     if(in >= 8 && out <= yfirvinnutala && hours < 8){
-                        int money = (int)(Integer.parseInt(salary[0]) * hours);
+                        int money = laun.dagvinna();
                         String money_text = "" + money;
                         amount.setText(money_text);
+                        Log.v("thetta1", "" + money);
+
                     }
                     //Ef þú stimplar þig inn fyrir klukkan 8 um morgun
                     else if(in < 8){
                         //Ef þú stimplar þig út á dagvinnutíma
                         if(out <= yfirvinnutala && out >= 8){
-                            double yfirvinnutimi = 8-in;
-                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
-                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
-                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            int money = laun.innFyrirUt();
                             String money_text = "" + money;
                             amount.setText(money_text);
+                            Log.v("thetta2", ""+money);
                         }
                         //Ef þú stimplar þig líka út fyrir kl 8 um morguninn
                         else if(out < 8 && hours <= 8){
-                            int money = (int)(Integer.parseInt(salary[1]) * hours);
+                            int money = laun.innFyrirUtFyrir();
                             String money_text = "" + money;
                             amount.setText(money_text);
+                            Log.v("thetta3", ""+money);
                         }
                         //Ef þú stimplar þig út eftir að yfirvina hefst
                         else if(out > yfirvinnutala){
-                            double yfirvinnutimi = (8-in) + (out - yfirvinnutala);
-                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
-                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
-                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            int money = laun.innFyrirUtEftir();
                             String money_text = "" + money;
                             amount.setText(money_text);
+                            Log.v("thetta4", ""+money);
                         }
                         //Ef þú vinnur lengur en 17 tíma og ert því komin hringinn (klukkan er orðin meira en miðnættir aftur)
                         else if(hours > 17 && out < 8){
-                            double yfirvinnutimi = (8-in) + (24-yfirvinnutala) + out;
-                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
-                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
-                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            int money = laun.innFyrirUtEftirEftir();
                             String money_text = "" + money;
                             amount.setText(money_text);
+                            Log.v("thetta5", ""+money);
                         }
                     }
                     //Ef þú stimplar þig inn eftir að yfirvinna hefst (fyrir miðnætti samt)
                     else if(in > yfirvinnutala){
                         //Ef þú stimplar þig líka út á yfirvinnutíma
                         if((out > yfirvinnutala && hours < 8) || (out <= 8)){
-                            int money = (int)(Integer.parseInt(salary[1]) * hours);
+                            int money = laun.innEftirUtEftir();
                             String money_text = "" + money;
                             amount.setText(money_text);
+                            Log.v("thetta6", ""+money);
                         }
                         //Ef þú stimplar þig út á dagvinnutíma
                         else if(out < yfirvinnutala && out > 8){
-                            double yfirvinnutimi = (24-in) + 8;
-                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
-                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
-                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            int money = laun.innEftirUt();
                             String money_text = "" + money;
                             amount.setText(money_text);
+                            Log.v("thetta7", ""+money);
                         }
                         //Ef þú vinnur í meira en 14 tíma og ert komin aftur í yfirvinnu
                         else if(hours > 14 && out > yfirvinnutala){
-                            double yfirvinnutimi = (24-in) + 8 + (out-yfirvinnutala);
-                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
-                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
-                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            int money = laun.innEftirUtEftirEftir();
                             String money_text = "" + money;
                             amount.setText(money_text);
+                            Log.v("thetta8", ""+money);
                         }
                     }
                     //Ef þú stimplar þig inn á dagvinnutíma
                     else if(in >= 8 && in <= yfirvinnutala){
+                        //Stimplar þig út á yfirvinnutíma
                         if(out > yfirvinnutala){
-                            double yfirvinnutimi = out - yfirvinnutala;
-                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
-                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
-                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            int money = laun.innUtEftir();
                             String money_text = "" + money;
                             amount.setText(money_text);
+                            Log.v("thetta9", ""+money);
                         }
                         else if(out <= 8){
-                            double yfirvinnutimi = out + (24-yfirvinnutala);
-                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
-                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
-                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            //Stimplar þig út milli miðnættis og 8 um morgun
+                            int money = laun.innUtEftirFyrir();
                             String money_text = "" + money;
                             amount.setText(money_text);
+                            Log.v("thetta10", ""+money);
                         }
                         else if(hours > 24 && out > 8){
-                            double yfirvinnutimi = (out-8) + 8 + (24-yfirvinnutala);
-                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
-                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
-                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            //Ef þú stimplar þig út eftir tryllta vinnutörn
+                            int money = laun.innUtEftirEftir();
                             String money_text = "" + money;
                             amount.setText(money_text);
+                            Log.v("thetta11", ""+money);
                         }
 
                     }
@@ -237,8 +235,12 @@ public class Vinna extends Activity {
                     helper.deleteTemp();
                     clicked = false;
                 }
+
             }
+
+
         });
+
 
         /*reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -247,7 +249,11 @@ public class Vinna extends Activity {
             }
         });*/
 
+
     }
+
+
+
 
     public static String getSeconds(String time)
     {
