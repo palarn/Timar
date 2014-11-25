@@ -65,12 +65,12 @@ public class yfirlit extends Activity implements
         }*/
 
         dateFrom = getDate(datePickerFrom);
+        //dateFrom = ("2014-11-27");
+
         dateTo = getDate(datePickerTo);
 
         get = (Button) findViewById(R.id.get);
         helper = new DatabaseAdapter(this);
-
-
     }
 
     public String getDate(DatePicker datePicker)
@@ -88,14 +88,24 @@ public class yfirlit extends Activity implements
         String[] job_array = new String[job_names.size()];
         job_names.toArray(job_array);
 
+        String strTo= dateTo.substring(0,4)+ dateTo.substring(5,7)+ dateTo.substring(8,10);
+        int strToInt=Integer.parseInt(strTo);
+        String strFrom= dateFrom.substring(0,4)+dateFrom.substring(5,7)+ dateFrom.substring(8,10);
+        int strFromInt=Integer.parseInt(strFrom);
+
         if (job_array.length != 0)
         {
-            intent.putExtra("names", job_array);
-            intent.putExtra("dateFrom", dateFrom);
-            intent.putExtra("dateTo", dateTo);
-            Toast.makeText(this, dateFrom + " " + dateTo + " " + job_array[0], Toast.LENGTH_SHORT).show();
+            if(strFromInt <= strToInt) {
+                intent.putExtra("names", job_array);
+                intent.putExtra("dateFrom", dateFrom);
+                intent.putExtra("dateTo", dateTo);
+                Toast.makeText(this, dateFrom + " " + dateTo + " " + job_array[0], Toast.LENGTH_SHORT).show();
 
-            startActivity(intent);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(this, "Laga þarf dagsetningu", Toast.LENGTH_SHORT).show();
+            }
         }
         else
         {
