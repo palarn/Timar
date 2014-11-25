@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -111,10 +112,126 @@ public class Vinna extends Activity {
                     String[] tempinfo = helper.getTempInfo();
 
                     double hours = Double.parseDouble(tempinfo[4]) + (Double.parseDouble(tempinfo[5]) / 60);
-                    int money = (int)(Integer.parseInt(salary[0]) * hours);
-                    String money_text = "" + money;
-                    amount.setText(money_text);
 
+
+
+                    String stimplainn = tempinfo[2];
+                    String stimplaut = tempinfo[3];
+                    System.out.print(stimplainn);
+                    String [] innstimplun = stimplainn.split(":");
+                    String [] utstimplun = stimplaut.split(":");
+                    String inntimi = innstimplun[0] + "." + innstimplun[1];
+                    String uttimi = utstimplun[0] + "." + utstimplun[1];
+                    double in = Double.parseDouble(inntimi);
+                    double out = Double.parseDouble(uttimi);
+                    Log.e("This is the output", in+"");
+                    Log.e("This is the output", out+"");
+
+                    String yfirvinna = salary[2];
+                    String [] yfirvinnustrengur = yfirvinna.split(":");
+                    System.out.print(yfirvinnustrengur);
+                    String yfirvinnafyrripartur = yfirvinnustrengur[0];
+                    double yfirvinnutala = Double.parseDouble(yfirvinnafyrripartur);
+                    Log.e("This is the output", yfirvinnutala+"");
+                    int yfirvinnukaup = (int)(Integer.parseInt(salary[1]));
+
+                    //Ef þú vinnur á dagvinnulaunum allan daginn
+                    if(in >= 8 && out <= yfirvinnutala && hours < 8){
+                        int money = (int)(Integer.parseInt(salary[0]) * hours);
+                        String money_text = "" + money;
+                        amount.setText(money_text);
+                    }
+                    //Ef þú stimplar þig inn fyrir klukkan 8 um morgun
+                    else if(in < 8){
+                        //Ef þú stimplar þig út á dagvinnutíma
+                        if(out <= yfirvinnutala && out >= 8){
+                            double yfirvinnutimi = 8-in;
+                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
+                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
+                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            String money_text = "" + money;
+                            amount.setText(money_text);
+                        }
+                        //Ef þú stimplar þig líka út fyrir kl 8 um morguninn
+                        else if(out < 8 && hours <= 8){
+                            int money = (int)(Integer.parseInt(salary[1]) * hours);
+                            String money_text = "" + money;
+                            amount.setText(money_text);
+                        }
+                        //Ef þú stimplar þig út eftir að yfirvina hefst
+                        else if(out > yfirvinnutala){
+                            double yfirvinnutimi = (8-in) + (out - yfirvinnutala);
+                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
+                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
+                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            String money_text = "" + money;
+                            amount.setText(money_text);
+                        }
+                        //Ef þú vinnur lengur en 17 tíma og ert því komin hringinn (klukkan er orðin meira en miðnættir aftur)
+                        else if(hours > 17 && out < 8){
+                            double yfirvinnutimi = (8-in) + (24-yfirvinnutala) + out;
+                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
+                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
+                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            String money_text = "" + money;
+                            amount.setText(money_text);
+                        }
+                    }
+                    //Ef þú stimplar þig inn eftir að yfirvinna hefst (fyrir miðnætti samt)
+                    else if(in > yfirvinnutala){
+                        //Ef þú stimplar þig líka út á yfirvinnutíma
+                        if((out > yfirvinnutala && hours < 8) || (out <= 8)){
+                            int money = (int)(Integer.parseInt(salary[1]) * hours);
+                            String money_text = "" + money;
+                            amount.setText(money_text);
+                        }
+                        //Ef þú stimplar þig út á dagvinnutíma
+                        else if(out < yfirvinnutala && out > 8){
+                            double yfirvinnutimi = (24-in) + 8;
+                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
+                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
+                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            String money_text = "" + money;
+                            amount.setText(money_text);
+                        }
+                        //Ef þú vinnur í meira en 14 tíma og ert komin aftur í yfirvinnu
+                        else if(hours > 14 && out > yfirvinnutala){
+                            double yfirvinnutimi = (24-in) + 8 + (out-yfirvinnutala);
+                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
+                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
+                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            String money_text = "" + money;
+                            amount.setText(money_text);
+                        }
+                    }
+                    //Ef þú stimplar þig inn á dagvinnutíma
+                    else if(in >= 8 && in <= yfirvinnutala){
+                        if(out > yfirvinnutala){
+                            double yfirvinnutimi = out - yfirvinnutala;
+                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
+                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
+                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            String money_text = "" + money;
+                            amount.setText(money_text);
+                        }
+                        else if(out <= 8){
+                            double yfirvinnutimi = out + (24-yfirvinnutala);
+                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
+                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
+                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            String money_text = "" + money;
+                            amount.setText(money_text);
+                        }
+                        else if(hours > 24 && out > 8){
+                            double yfirvinnutimi = (out-8) + 8 + (24-yfirvinnutala);
+                            double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
+                            double dagvinnulaun = Double.parseDouble(salary[0])*(hours-yfirvinnutimi);
+                            int money = (int)(yfirvinnulaun+dagvinnulaun);
+                            String money_text = "" + money;
+                            amount.setText(money_text);
+                        }
+
+                    }
                     //date, name, in, out, hours, minutes, salary
                     helper.insertWorkLog(tempinfo[0], tempinfo[1], tempinfo[2], tempinfo[3], tempinfo[4], tempinfo[5], salary[0]);
                     helper.deleteTemp();
