@@ -64,10 +64,7 @@ public class yfirlit extends Activity implements
 
         }*/
 
-        dateFrom = getDate(datePickerFrom);
-        //dateFrom = ("2014-11-27");
 
-        dateTo = getDate(datePickerTo);
 
         get = (Button) findViewById(R.id.get);
         helper = new DatabaseAdapter(this);
@@ -87,6 +84,9 @@ public class yfirlit extends Activity implements
         Intent intent = new Intent(yfirlit.this, vinnu_yfirlit.class);
         String[] job_array = new String[job_names.size()];
         job_names.toArray(job_array);
+
+        dateFrom = getDate(datePickerFrom);
+        dateTo = getDate(datePickerTo);
 
         String strTo= dateTo.substring(0,4)+ dateTo.substring(5,7)+ dateTo.substring(8,10);
         int strToInt=Integer.parseInt(strTo);
