@@ -37,7 +37,8 @@
         android:id="@+id/new_name"
         android:layout_below="@+id/textView_yfirlit_top"
         android:layout_alignEnd="@+id/test"
-        android:layout_toEndOf="@+id/name" />
+        android:layout_toEndOf="@+id/name"
+        android:maxLength="16"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,7 +56,9 @@
         android:id="@+id/new_salary1"
         android:layout_below="@+id/name"
         android:layout_alignEnd="@+id/new_name"
-        android:layout_alignStart="@+id/new_name" />
+        android:layout_alignStart="@+id/new_name"
+        android:inputType="number"
+        android:maxLength="6"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,7 +76,9 @@
         android:id="@+id/new_salary2"
         android:layout_below="@+id/amount"
         android:layout_alignEnd="@+id/new_salary1"
-        android:layout_alignStart="@+id/new_salary1" />
+        android:layout_alignStart="@+id/new_salary1"
+        android:inputType="number"
+        android:maxLength="6"/>
 
     <Button
         android:layout_width="wrap_content"
