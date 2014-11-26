@@ -11,6 +11,12 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+/**
+ * Klasi sem
+ * @author Freydis Halldorsdottir
+ * @date 14. november 2014
+ */
+
 public class ExListAdapter extends BaseExpandableListAdapter {
 
     private Context _context;

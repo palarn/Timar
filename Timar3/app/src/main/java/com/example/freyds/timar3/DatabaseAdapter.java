@@ -301,7 +301,7 @@ public class DatabaseAdapter
         private static final String SALARY2 = "Salary2";
         private static final String SALARYTIME = "Salarytime";
         private static final String CREATE_TABLE = "CREATE TABLE " + JOB_INFO + "("+ NAME + " VARCHAR(255) PRIMARY KEY,"+ SALARY1
-                                                    + " INTEGER(255)," + SALARY2 + " INTEGER(255));";
+                + " INTEGER(255)," + SALARY2 + " INTEGER(255));";
 
         private static final String DROP_TABLE = "DROP TABLE IF EXISTS" + JOB_INFO;
 
@@ -315,9 +315,9 @@ public class DatabaseAdapter
         private static final String HOURS = "Hours";
         private static final String AMOUNT = "Amount";
         private static final String CREATE_WORKLOG = "CREATE TABLE " + WORK_LOG + "(" + DATE + " VARCHAR(255),"
-                                                      + JOB_NAME + " VARCHAR(255)," + JOB_IN + " VARCHAR(255)," + JOB_OUT + " VARCHAR(255),"
-                                                      + HOURS + " VARCHAR(255)," + AMOUNT
-                                                      + " INTEGER(255), PRIMARY KEY(" + DATE + "," + JOB_NAME + "," + JOB_IN + "));";
+                + JOB_NAME + " VARCHAR(255)," + JOB_IN + " VARCHAR(255)," + JOB_OUT + " VARCHAR(255),"
+                + HOURS + " VARCHAR(255)," + AMOUNT
+                + " INTEGER(255), PRIMARY KEY(" + DATE + "," + JOB_NAME + "," + JOB_IN + "));";
 
         //þetta er temp tafla sem inniheldur alltaf bara eina færslu
         //gerir það að verkum að við getum stimplað okkur inn, farið úr appinu og stimplað okkur út án þess að gögnin tapist
@@ -331,11 +331,11 @@ public class DatabaseAdapter
         private static final String TOTAL_HOURS = "TotalHours";
         private static final String TOTAL_MINUTES = "TotalMinutes";
         private static final String CREATE_TEMP = "CREATE TABLE " + TEMP_TABLE + "(" + TEMP_DATE + " VARCHAR(255)," + TEMP_NAME + " VARCHAR(255) PRIMARY KEY,"
-                                                    + TEMP_IN + " VARCHAR(255)," + TEMP_OUT + " VARCHAR(255)," + TOTAL_HOURS + " INTEGER(255),"
-                                                    + TOTAL_MINUTES + " INTEGER(255));";
+                + TEMP_IN + " VARCHAR(255)," + TEMP_OUT + " VARCHAR(255)," + TOTAL_HOURS + " INTEGER(255),"
+                + TOTAL_MINUTES + " INTEGER(255));";
 
         private Context context;
-        private static final int DATABASE_VERSION = 19;
+        private static final int DATABASE_VERSION = 23;
 
         public Helper(Context context)
         {
@@ -362,6 +362,7 @@ public class DatabaseAdapter
                 db.execSQL("DROP TABLE IF EXISTS " + WORK_LOG);
                 db.execSQL("DROP TABLE IF EXISTS " + TEMP_TABLE);
                 db.execSQL(CREATE_WORKLOG);
+                db.execSQL("ALTER TABLE " + JOB_INFO + " ADD " + SALARYTIME + " VARCHAR(255)");
                 db.execSQL(CREATE_TEMP);
             }
         }

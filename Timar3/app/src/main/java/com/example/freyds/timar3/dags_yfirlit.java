@@ -7,13 +7,18 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.content.Intent;
 
-
+/**
+ * Klasi sem sækjir gögn um vinnutíma í SQL gagnagrunn og birtir eftir dögum
+ * @author Anna Hafthorsdottir, Freydis Halldorsdottir, Helga Loa Kristjansdottir, Pall Arnar Palsson
+ * @date 14. november 2014
+ */
 
 public class dags_yfirlit extends Activity {
     TextView date, name, in, out, hours, amount;
     Bundle extras;
     DatabaseAdapter helper;
 
+    //Hlutir skilgreindir í byrjun
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

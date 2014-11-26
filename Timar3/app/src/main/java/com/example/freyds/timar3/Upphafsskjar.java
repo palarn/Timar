@@ -22,6 +22,7 @@ public class Upphafsskjar extends Activity implements AdapterView.OnItemClickLis
     ListView vinnuListi;                    //ListView widget sem heldur utan um öll nöfnin á skráðum vinnum
     DatabaseAdapter helper;
 
+    //Hlutir skilgreindir í byrjun
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

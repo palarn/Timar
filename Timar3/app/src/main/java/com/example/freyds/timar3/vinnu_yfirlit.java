@@ -15,6 +15,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Klasi sem tekur vid gognum fra yfirlit.java, s.s. valda vinnu og dagsetningu. Saekjir og byrtir ur gagnagrunni thau gogn sem falla undir tha parametra sem gognin fra yfirlit.java gefa.
+ * @author Anna Hafthorsdottir, Freydis Halldorsdottir, Helga Loa Kristjansdottir, Pall Arnar Palsson
+ * @date 14. november 2014
+ */
 
 public class vinnu_yfirlit extends Activity {
     DatabaseAdapter helper;
@@ -27,6 +32,7 @@ public class vinnu_yfirlit extends Activity {
     List<String> date_header;
     HashMap<String, List<String>> job_items;
 
+    //Hlutir skilgreindir í byrjun
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +77,7 @@ public class vinnu_yfirlit extends Activity {
             }
         });
     }
-
+    //Setur upplýsingar í lista
     private void populateList(String[] results) {
 
         date_header = new ArrayList<String>();
@@ -91,6 +97,7 @@ public class vinnu_yfirlit extends Activity {
         }
     }
 
+    //
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -98,6 +105,7 @@ public class vinnu_yfirlit extends Activity {
         return true;
     }
 
+    //Tökkum í actionbar gefin virkni ef ýtt er á þá
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

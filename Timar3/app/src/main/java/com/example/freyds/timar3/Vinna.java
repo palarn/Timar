@@ -41,6 +41,7 @@ public class Vinna extends Activity {
     static int total_hours = 0;
     static boolean clicked = false;
 
+    //Hlutir skilgreindir í byrjun
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -254,7 +255,7 @@ public class Vinna extends Activity {
 
 
 
-
+    //Fall sem sækjir tíma úr fylki og setur í og skilar streng
     public static String getSeconds(String time)
     {
         // time er strengur á forminu HH:MM:SS eða MM:SS
@@ -274,6 +275,7 @@ public class Vinna extends Activity {
         return (total_hours + " klst. og " + total_minutes + " mín.");
     }
 
+    //Activity slekkur á sér þegar farið er í næsta skjá ef notandi er ekki stimplaður inn í þessa vinnu, annars vinnur activity í bakgrunni.
     @Override
     protected void onPause() {
         super.onPause();
@@ -289,6 +291,7 @@ public class Vinna extends Activity {
         return true;
     }
 
+    //Tökkum í actionbar gefin virkni ef ýtt er á þá
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Action bar heldur utan um smelli. Action barinn mun

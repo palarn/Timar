@@ -3,8 +3,11 @@ package com.example.freyds.timar3;
 import android.util.Log;
 
 /**
- * Created by annahafthorsdottir on 25/11/14.
+ * Klasi sem reiknar heildarlaun utfra skradum timum og skradum launum
+ * @author Anna Hafthorsdottir
+ * @date 25. november 2014
  */
+
 public class Laun {
     double in;
     double out;

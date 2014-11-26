@@ -14,6 +14,12 @@ import android.widget.TextView;
 
 import java.util.List;
 
+/**
+ * Klasi sem
+ * @author Freydis Halldorsdottir
+ * @date 14. november 2014
+ */
+
 class ListItem {
     String name;
     boolean selected = false;

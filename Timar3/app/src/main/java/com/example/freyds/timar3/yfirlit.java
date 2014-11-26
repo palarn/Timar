@@ -19,6 +19,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.content.Intent;
 
+/**
+ * Klasi sem birtir nofn a skradum vinnum og tvo datePicker hluti thar sem haegt er ad velja dagsetningu.
+ * Kallar a klasann vinnuyfirlit og sendir þangad hvada vinnur voru valdar og hvada dagsetning.
+ * @author Anna Hafthorsdottir, Freydis Halldorsdottir, Helga Loa Kristjansdottir, Pall Arnar Palsson
+ * @date 14. november 2014
+ */
 
 public class yfirlit extends Activity implements
         android.widget.CompoundButton.OnCheckedChangeListener {
