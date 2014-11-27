@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:background="#ffd5d5d5">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffd5d5d5">
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,10 +39,10 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:text="Frá:"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:id="@+id/from"
                 android:layout_alignParentLeft="true"
                 android:textSize="20dp" />
@@ -49,13 +50,13 @@
             <DatePicker
                 android:scaleX="0.7"
                 android:scaleY="0.7"
-                android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/datePicker"
                 android:calendarViewShown="false"
+                android:layout_toEndOf="@+id/from"
                 android:layout_below="@+id/from"
-                android:layout_alignParentLeft="true" />
+                android:layout_marginLeft="28dp" />
 
         </RelativeLayout>
 
@@ -63,11 +64,10 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_marginTop="15dp"
-
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_height="wrap_content"
         android:text="Til:"
-        android:layout_marginRight="10dp"
         android:id="@+id/to"
         android:layout_alignParentRight="true"
         android:textSize="20dp" />
@@ -75,13 +75,12 @@
     <DatePicker
         android:scaleX="0.7"
         android:scaleY="0.7"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/datePicker2"
         android:calendarViewShown="false"
-
-        android:layout_alignParentRight="true"
+        android:layout_marginLeft="67dp"
         android:layout_below="@+id/to"
         android:layout_toRightOf="@+id/datePicker" />
 
