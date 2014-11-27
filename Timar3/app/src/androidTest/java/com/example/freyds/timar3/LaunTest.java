@@ -1,5 +1,4 @@
 package com.example.freyds.timar3;
-
 import junit.framework.TestCase;
 
 public class LaunTest extends TestCase {

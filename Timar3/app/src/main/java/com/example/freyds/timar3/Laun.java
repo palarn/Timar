@@ -1,5 +1,4 @@
 package com.example.freyds.timar3;
-
 import android.util.Log;
 
 /**
