@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.content.Intent;
 
 /**
- * Klasi sem sækjir gögn um vinnutíma í SQL gagnagrunn og birtir eftir dögum
+ * Klasi sem saekjir gogn um vinnutima i SQL gagnagrunn og birtir eftir dogum
  * @author Anna Hafthorsdottir, Freydis Halldorsdottir, Helga Loa Kristjansdottir, Pall Arnar Palsson
  * @date 14. november 2014
  */
