@@ -362,7 +362,6 @@ public class DatabaseAdapter
                 db.execSQL("DROP TABLE IF EXISTS " + WORK_LOG);
                 db.execSQL("DROP TABLE IF EXISTS " + TEMP_TABLE);
                 db.execSQL(CREATE_WORKLOG);
-                db.execSQL("ALTER TABLE " + JOB_INFO + " ADD " + SALARYTIME + " VARCHAR(255)");
                 db.execSQL(CREATE_TEMP);
             }
         }

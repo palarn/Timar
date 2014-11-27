@@ -25,12 +25,12 @@ public class Laun {
         this.hours = hours;
     }
 
-    public int dagvinna(){
+    public int inDay_outDay(){
         int money = (int)(dagvinnukaup * hours);
         return money;
     }
 
-    public int innFyrirUt(){
+    public int inNight_outDay(){
         double yfirvinnutimi = 8-in;
         double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
         double dagvinnulaun = dagvinnukaup*(hours-yfirvinnutimi);
@@ -38,12 +38,12 @@ public class Laun {
         return money;
     }
 
-    public int innFyrirUtFyrir(){
+    public int inNight_outNight(){
         int money = (int)(yfirvinnukaup * hours);
         return money;
     }
 
-    public int innFyrirUtEftir(){
+    public int inNight_outEvening(){
         double yfirvinnutimi = (8-in) + (out - yfirvinnutala);
         double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
         double dagvinnulaun = dagvinnukaup*(hours-yfirvinnutimi);
@@ -51,7 +51,7 @@ public class Laun {
         return money;
     }
 
-    public int innFyrirUtEftirEftir(){
+    public int inNight_outNightAfter(){
         double yfirvinnutimi = (8-in) + (24-yfirvinnutala) + out;
         double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
         double dagvinnulaun = dagvinnukaup*(hours-yfirvinnutimi);
@@ -59,12 +59,12 @@ public class Laun {
         return money;
     }
 
-    public int innEftirUtEftir(){
+    public int inEvening_outEvening(){
         int money = (int)(yfirvinnukaup * hours);
         return money;
     }
 
-    public int innEftirUt(){
+    public int inEvening_outDay(){
         double yfirvinnutimi = (24-in) + 8;
         double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
         double dagvinnulaun = dagvinnukaup*(hours-yfirvinnutimi);
@@ -72,7 +72,7 @@ public class Laun {
         return money;
     }
 
-    public int innEftirUtEftirEftir(){
+    public int inEvening_outEveningAfter(){
         double yfirvinnutimi = (24-in) + 8 + (out-yfirvinnutala);
         double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
         double dagvinnulaun = dagvinnukaup*(hours-yfirvinnutimi);
@@ -80,7 +80,7 @@ public class Laun {
         return money;
     }
 
-    public int innUtEftir(){
+    public int inDay_outEvening(){
         double yfirvinnutimi = out - yfirvinnutala;
         double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
         double dagvinnulaun = dagvinnukaup*(hours-yfirvinnutimi);
@@ -88,7 +88,7 @@ public class Laun {
         return money;
     }
 
-    public int innUtEftirFyrir(){
+    public int inDay_outNight(){
         double yfirvinnutimi = out + (24-yfirvinnutala);
         double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
         double dagvinnulaun = dagvinnukaup*(hours-yfirvinnutimi);
@@ -96,7 +96,7 @@ public class Laun {
         return money;
     }
 
-    public int innUtEftirEftir(){
+    public int inDay_outDayAfter(){
         double yfirvinnutimi = (out-8) + 8 + (24-yfirvinnutala);
         double yfirvinnulaun = yfirvinnutimi*yfirvinnukaup;
         double dagvinnulaun = dagvinnukaup*(hours-yfirvinnutimi);

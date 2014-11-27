@@ -115,8 +115,6 @@ public class Vinna extends Activity {
                     double hours = Double.parseDouble(tempinfo[4]) + (Double.parseDouble(tempinfo[5]) / 60);
                     Log.v("hours", ""+ hours);
 
-
-
                     String stimplainn = tempinfo[2];
                     String stimplaut = tempinfo[3];
                     System.out.print(stimplainn);
@@ -126,28 +124,20 @@ public class Vinna extends Activity {
                     String uttimi = utstimplun[0] + "." + utstimplun[1];
                     double in = Double.parseDouble(inntimi);
                     double out = Double.parseDouble(uttimi);
-                    Log.v("This is the output", in+"");
-                    Log.v("This is the output", out+"");
-
-                    String yfirvinna = salary[2];
-                    String [] yfirvinnustrengur = yfirvinna.split(":");
-                    System.out.print(yfirvinnustrengur);
+                    //Log.v("This is the output", in+"");
+                    //Log.v("This is the output", out+"");
+                    String [] yfirvinnustrengur = salary[2].split(":");
                     String yfirvinnafyrripartur = yfirvinnustrengur[0];
                     double yfirvinnutala = Double.parseDouble(yfirvinnafyrripartur);
-
-                    Log.v("This is the output", yfirvinnutala+"");
-
+                    //Log.v("This is the output", yfirvinnutala+"");
                     int yfirvinnukaup = (int)(Integer.parseInt(salary[1]));
-
                     int dagvinnukaup = (int)(Integer.parseInt(salary[0]));
 
                     Laun laun = new Laun(in, out, yfirvinnutala, dagvinnukaup, yfirvinnukaup, hours);
-
+                    int money = 0;
                     //Ef þú vinnur á dagvinnulaunum allan daginn
                     if(in >= 8 && out <= yfirvinnutala && hours < 8){
-                        int money = laun.dagvinna();
-                        String money_text = "" + money;
-                        amount.setText(money_text);
+                        money = laun.inDay_outDay();
                         Log.v("thetta1", "" + money);
 
                     }
@@ -155,30 +145,22 @@ public class Vinna extends Activity {
                     else if(in < 8){
                         //Ef þú stimplar þig út á dagvinnutíma
                         if(out <= yfirvinnutala && out >= 8){
-                            int money = laun.innFyrirUt();
-                            String money_text = "" + money;
-                            amount.setText(money_text);
+                            money = laun.inNight_outDay();
                             Log.v("thetta2", ""+money);
                         }
                         //Ef þú stimplar þig líka út fyrir kl 8 um morguninn
                         else if(out < 8 && hours <= 8){
-                            int money = laun.innFyrirUtFyrir();
-                            String money_text = "" + money;
-                            amount.setText(money_text);
+                            money = laun.inNight_outNight();
                             Log.v("thetta3", ""+money);
                         }
                         //Ef þú stimplar þig út eftir að yfirvina hefst
                         else if(out > yfirvinnutala){
-                            int money = laun.innFyrirUtEftir();
-                            String money_text = "" + money;
-                            amount.setText(money_text);
+                            money = laun.inNight_outEvening();
                             Log.v("thetta4", ""+money);
                         }
                         //Ef þú vinnur lengur en 17 tíma og ert því komin hringinn (klukkan er orðin meira en miðnættir aftur)
                         else if(hours > 17 && out < 8){
-                            int money = laun.innFyrirUtEftirEftir();
-                            String money_text = "" + money;
-                            amount.setText(money_text);
+                            money = laun.inNight_outNightAfter();
                             Log.v("thetta5", ""+money);
                         }
                     }
@@ -186,23 +168,17 @@ public class Vinna extends Activity {
                     else if(in > yfirvinnutala){
                         //Ef þú stimplar þig líka út á yfirvinnutíma
                         if((out > yfirvinnutala && hours < 8) || (out <= 8)){
-                            int money = laun.innEftirUtEftir();
-                            String money_text = "" + money;
-                            amount.setText(money_text);
+                            money = laun.inEvening_outEvening();
                             Log.v("thetta6", ""+money);
                         }
                         //Ef þú stimplar þig út á dagvinnutíma
                         else if(out < yfirvinnutala && out > 8){
-                            int money = laun.innEftirUt();
-                            String money_text = "" + money;
-                            amount.setText(money_text);
+                            money = laun.inEvening_outDay();
                             Log.v("thetta7", ""+money);
                         }
                         //Ef þú vinnur í meira en 14 tíma og ert komin aftur í yfirvinnu
                         else if(hours > 14 && out > yfirvinnutala){
-                            int money = laun.innEftirUtEftirEftir();
-                            String money_text = "" + money;
-                            amount.setText(money_text);
+                            money = laun.inEvening_outEveningAfter();
                             Log.v("thetta8", ""+money);
                         }
                     }
@@ -210,50 +186,39 @@ public class Vinna extends Activity {
                     else if(in >= 8 && in <= yfirvinnutala){
                         //Stimplar þig út á yfirvinnutíma
                         if(out > yfirvinnutala){
-                            int money = laun.innUtEftir();
-                            String money_text = "" + money;
-                            amount.setText(money_text);
+                            money = laun.inDay_outEvening();
                             Log.v("thetta9", ""+money);
                         }
                         else if(out <= 8){
                             //Stimplar þig út milli miðnættis og 8 um morgun
-                            int money = laun.innUtEftirFyrir();
-                            String money_text = "" + money;
-                            amount.setText(money_text);
+                            money = laun.inDay_outNight();
                             Log.v("thetta10", ""+money);
                         }
                         else if(hours > 24 && out > 8){
                             //Ef þú stimplar þig út eftir tryllta vinnutörn
-                            int money = laun.innUtEftirEftir();
-                            String money_text = "" + money;
-                            amount.setText(money_text);
+                            money = laun.inDay_outDayAfter();
                             Log.v("thetta11", ""+money);
                         }
 
                     }
+                    String money_text = "" + money;
+                    amount.setText(money_text);
                     //date, name, in, out, hours, minutes, salary
                     helper.insertWorkLog(tempinfo[0], tempinfo[1], tempinfo[2], tempinfo[3], tempinfo[4], tempinfo[5], salary[0]);
                     helper.deleteTemp();
                     clicked = false;
                 }
-
             }
 
 
         });
-
-
         /*reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 clock.setBase(SystemClock.elapsedRealtime());
             }
         });*/
-
-
     }
-
-
 
     //Fall sem sækjir tíma úr fylki og setur í og skilar streng
     public static String getSeconds(String time)
@@ -324,4 +289,3 @@ public class Vinna extends Activity {
         return super.onOptionsItemSelected(item);
     }
 }
-
